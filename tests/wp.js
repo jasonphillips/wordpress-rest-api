@@ -223,13 +223,13 @@ describe( 'wp', function() {
 		it( 'defines a .categories() shortcut for the category taxonomy terms', function() {
 			var categories = site.categories();
 			expect( categories instanceof TaxonomiesRequest ).to.be.true;
-			expect( categories._renderURI() ).to.equal( 'endpoint/url/taxonomies/category/terms' );
+			expect( categories._renderURI() ).to.equal( 'endpoint/url/terms/category' );
 		});
 
 		it( 'defines a .tags() shortcut for the tag taxonomy terms', function() {
 			var tags = site.tags();
 			expect( tags instanceof TaxonomiesRequest ).to.be.true;
-			expect( tags._renderURI() ).to.equal( 'endpoint/url/taxonomies/post_tag/terms' );
+			expect( tags._renderURI() ).to.equal( 'endpoint/url/terms/tag' );
 		});
 
 		it( 'defines a generic .taxonomy() handler for arbitrary taxonomy objects', function() {

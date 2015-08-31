@@ -182,22 +182,22 @@ WP.prototype.categories = function() {
 };
 
 /**
- * Request a list of post_tag terms
+ * Request a list of tag (post_tag) terms
  *
- * This is a shortcut method to retrieve the terms for the "post_tag" taxonomy
+ * This is a shortcut method to retrieve the terms for the "tag" taxonomy
  *
  * @example
  * These are equivalent:
  *
- *     wp.taxonomies().taxonomy( 'post_tag' ).terms()
+ *     wp.taxonomies().taxonomy( 'tag' ).terms()
  *     wp.tags()
  *
  * @method tags
- * @return {TaxonomiesRequest} A TaxonomiesRequest object bound to the terms for "post_tag"
+ * @return {TaxonomiesRequest} A TaxonomiesRequest object bound to the terms for "tag"
  */
 WP.prototype.tags = function() {
 	var options = extend( {}, this._options );
-	return new TaxonomiesRequest( options ).taxonomy( 'post_tag' ).terms();
+	return new TaxonomiesRequest( options ).taxonomy( 'tag' ).terms();
 };
 
 /**
