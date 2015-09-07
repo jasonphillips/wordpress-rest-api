@@ -67,7 +67,7 @@ describe( 'wp.posts', function() {
 			var posts = new PostsRequest();
 			expect( posts._pathValidators ).to.deep.equal({
 				id: /^\d+$/,
-				action: /(meta|comments|revisions)/
+				action: /(meta|comments|revisions|terms)/
 			});
 		});
 
@@ -251,6 +251,11 @@ describe( 'wp.posts', function() {
 		it( 'should create the URL for retrieving the revisions for a specific post', function() {
 			var path = posts.id( 1337 ).revisions()._renderURI();
 			expect( path ).to.equal( '/wp-json/posts/1337/revisions' );
+		});
+
+		it( 'should create the URL for retrieving terms for a post and vocabulary', function() {
+			var path = posts.id( 1337 ).terms( 'category' )._renderURI();
+			expect( path ).to.equal( '/wp-json/posts/1337/terms/category' );
 		});
 
 		it( 'should force authentication when querying posts/id/revisions', function() {
